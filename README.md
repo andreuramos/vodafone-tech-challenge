@@ -8,6 +8,8 @@ having docker installed
 
 ### Instructions
 
-1. build the docker image with `make build`
-2. run the container with `make start`
-3. run the application with `make run`
+* build the docker image with `make build`
+* start the container with `make up`
+* stop the container with `make down`
+* run the application with `make run`
+* run the tests with `make tests`
