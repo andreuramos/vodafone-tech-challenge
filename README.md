@@ -1,1 +1,7 @@
-# vodafone-tech-challenge
+# Vodafone Tech Challenge
+
+## Requirements
+
+Docker
+
+## 
