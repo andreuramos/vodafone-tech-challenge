@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 
 
-class CustomerRepository(ABC):
+class CustomerReader(ABC):
 
     @abstractmethod
-    def get(self) -> list:
+    def read(self) -> list:
         pass

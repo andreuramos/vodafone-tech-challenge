@@ -6,12 +6,12 @@ from src.use_case import UseCase
 
 class TestUseCase(unittest.TestCase):
     def test_fetches_customer_data(self):
-        repository = MagicMock()
-        use_case = UseCase(repository)
+        reader = MagicMock()
+        use_case = UseCase(reader)
 
         use_case.run()
 
-        repository.get.assert_called()
+        reader.read.assert_called()
 
 
 if __name__ == '__main__':

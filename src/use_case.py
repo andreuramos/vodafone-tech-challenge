@@ -1,9 +1,9 @@
-from src.customer_repository import CustomerRepository
+from src.customer_reader import CustomerReader
 
 
 class UseCase:
-    def __init__(self, customer_repository: CustomerRepository):
-        self.customerRepository = customer_repository
+    def __init__(self, customer_reader: CustomerReader):
+        self.customerRepository = customer_reader
 
     def run(self):
-        self.customerRepository.get()
+        self.customerRepository.read()
