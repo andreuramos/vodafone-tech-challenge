@@ -17,7 +17,7 @@ class TestCustomerReport(TestCase):
 
     def test_one_customer(self):
         report = CustomerReport()
-        customer = Customer(1, "Name", "email", 1, "NY")
+        customer = Customer(1, "John", "email", 1, "NY")
 
         report.add_customer(customer)
 
@@ -30,8 +30,8 @@ class TestCustomerReport(TestCase):
 
     def test_two_customers(self):
         report = CustomerReport()
-        customer1 = Customer(1, "Name", "email@email", 5, "NJ")
-        customer2 = Customer(2, "LongName", "email@domain", 10, "CA")
+        customer1 = Customer(1, "John", "email@email", 5, "NJ")
+        customer2 = Customer(2, "LongJohn", "email@domain", 10, "CA")
 
         report.add_customer(customer1)
         report.add_customer(customer2)
@@ -42,3 +42,14 @@ class TestCustomerReport(TestCase):
         assert report.max_billing == 10
         assert report.min_billing == 5
         assert report.avg_billing == 7.5
+
+    def test_prints_as_expected(self):
+        report = CustomerReport()
+        customer1 = Customer(1, "John", "email@email", 500, "NJ")
+        customer2 = Customer(2, "LongJohn", "email@domain", 2000, "CA")
+
+        report.add_customer(customer1)
+        report.add_customer(customer2)
+
+        self.assertEqual(str(report),
+                         "Name: Max. 8, Min. 4, Avg. 6.0\nBilling: Max. 2000.00, Min. 500.00, Avg. 1250.00")

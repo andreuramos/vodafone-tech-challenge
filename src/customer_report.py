@@ -31,3 +31,9 @@ class CustomerReport:
             self.min_billing = min(self.min_billing, customer.billing)
 
         self.avg_billing += (customer.billing - self.avg_billing) / self.number_of_customers
+
+    def __str__(self):
+        name_stats = f'Name: Max. {self.name_max_length}, Min. {self.name_min_length}, Avg. {self.name_avg_length}'
+        billing_stats = f'Billing: Max. {self.max_billing:.2f}, Min. {self.min_billing:.2f}, Avg. {self.avg_billing:.2f}'
+
+        return f'{name_stats}\n{billing_stats}'

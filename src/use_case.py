@@ -27,5 +27,5 @@ class UseCase:
 
         self.customer_writer.write(masked_customers, report.avg_billing)
 
-        return [1, "OK"]
+        return [1, report]
 

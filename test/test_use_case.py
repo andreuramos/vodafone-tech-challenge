@@ -32,7 +32,6 @@ class TestUseCase(unittest.TestCase):
 
         self.masker.assert_not_called()
         assert code == 1
-        assert message == "OK"
 
     def test_one_customer(self):
         customer = _build_customer()
@@ -47,8 +46,6 @@ class TestUseCase(unittest.TestCase):
         self.masker.mask.assert_called_with(customer)
         self.writer.write.assert_called_with([masked_customer], 0)
         assert code == 1
-        assert message == "OK"
-
 
 if __name__ == '__main__':
     unittest.main()
