@@ -6,9 +6,12 @@ from src.customer_report import CustomerReport
 
 class TestCustomerReport(TestCase):
     def test_empty_report(self):
-        retport = CustomerReport()
+        report = CustomerReport()
 
-        assert retport.avg_billing == 0
+        assert report.name_max_length is None
+        assert report.name_min_length is None
+        assert report.name_avg_length is None
+        assert report.avg_billing == 0
 
     def test_one_customer(self):
         report = CustomerReport()
@@ -16,6 +19,9 @@ class TestCustomerReport(TestCase):
 
         report.add_customer(customer)
 
+        assert report.name_max_length == 4
+        assert report.name_min_length == 4
+        assert report.name_avg_length == 4
         assert report.avg_billing == 1
 
     def test_two_customers(self):
@@ -26,4 +32,7 @@ class TestCustomerReport(TestCase):
         report.add_customer(customer1)
         report.add_customer(customer2)
 
+        assert report.name_max_length == 8
+        assert report.name_min_length == 4
+        assert report.name_avg_length == 6
         assert report.avg_billing == 7.5
