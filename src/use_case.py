@@ -14,7 +14,15 @@ class UseCase:
 
     def run(self):
         masked_customers = []
-        for customer in self.customerRepository.read():
-            masked_customers.append(self.customer_masker.mask(customer))
+        try:
+            for customer in self.customerRepository.read():
+                masked_customers.append(self.customer_masker.mask(customer))
+        except FileNotFoundError:
+            return [0, "File not found"]
+        except Exception as e:
+            return [0, f"Error: {e}"]
 
         self.customer_writer.write(masked_customers)
+
+        return [1, "OK"]
+
