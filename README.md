@@ -18,3 +18,4 @@ having docker installed
 
 * The csv parsing assumes no commas are present within the columns
 * Also the file reader assumes all columns are present and in the same order.
+* A __letter__ (term used to describe the mask behaviour) is understood as an alphabetical character, excluding numerical and others 

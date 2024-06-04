@@ -7,12 +7,12 @@ class UseCase:
     def __init__(self,
                  customer_reader: CustomerReader,
                  customer_masker: CustomerMasker,
-                 customer_writer: CustomerWriter) -> None:
+                 customer_writer: CustomerWriter):
         self.customerRepository = customer_reader
         self.customer_masker = customer_masker
         self.customer_writer = customer_writer
 
-    def run(self):
+    def run(self) -> list:
         masked_customers = []
         try:
             for customer in self.customerRepository.read():
