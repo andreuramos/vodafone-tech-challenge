@@ -2,16 +2,33 @@ import unittest
 from unittest.mock import MagicMock
 
 from src.use_case import UseCase
+from src.customer import Customer
 
 
 class TestUseCase(unittest.TestCase):
-    def test_fetches_customer_data(self):
-        reader = MagicMock()
-        use_case = UseCase(reader)
+
+    def setUp(self) -> None:
+        self.reader = MagicMock()
+        self.masker = MagicMock()
+
+    def test_no_customers(self):
+        use_case = UseCase(self.reader, self.masker)
 
         use_case.run()
 
-        reader.read.assert_called()
+        self.masker.assert_not_called()
+
+    def test_one_customer(self):
+        customer = Customer()
+        masked_customer = Customer()
+        self.reader.read.return_value = [customer]
+        self.masker.mask.return_value = masked_customer
+        use_case = UseCase(self.reader, self.masker)
+
+        use_case.run()
+
+        self.reader.read.assert_called()
+        self.masker.mask.assert_called_with(customer)
 
 
 if __name__ == '__main__':
