@@ -45,7 +45,7 @@ class TestUseCase(unittest.TestCase):
 
         self.reader.read.assert_called()
         self.masker.mask.assert_called_with(customer)
-        self.writer.write.assert_called_with([masked_customer])
+        self.writer.write.assert_called_with([masked_customer], 0)
         assert code == 1
         assert message == "OK"
 
