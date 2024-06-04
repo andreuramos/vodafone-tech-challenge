@@ -22,7 +22,7 @@ class UseCase:
         except Exception as e:
             return [0, f"Error: {e}"]
 
-        self.customer_writer.write(masked_customers)
+        self.customer_writer.write(masked_customers, 0)
 
         return [1, "OK"]
 
