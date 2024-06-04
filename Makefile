@@ -3,7 +3,7 @@ build:
 	docker build -t python-img .
 
 up:
-	docker run -d -v $(shell pwd):/app --name python-app python-img
+	docker run -d -v $(shell pwd):/app --env-file .env --name python-app python-img
 
 down:
 	docker stop python-app && docker rm python-app
