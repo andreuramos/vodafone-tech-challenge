@@ -1,9 +1,14 @@
-import os
-
-print("running")
+from src.csv_customer_reader import CsvCustomerReader
+from src.customer_masker import CustomerMasker
+from src.customer_writer import CustomerWriter
+from src.use_case import UseCase
 
 if __name__ == '__main__':
-    data_directory = os.getenv('DATA_DIRECTORY')
-    source_file = os.getenv('INPUT_FILE')
-    file_path = data_directory + '/' + source_file
-    print("reading " + file_path)
+    reader = CsvCustomerReader()
+    masker = CustomerMasker()
+    writer = CustomerWriter()
+    use_case = UseCase(reader, masker, writer)
+
+    [code, message] = use_case.run()
+
+    print(message)
