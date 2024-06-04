@@ -13,3 +13,8 @@ having docker installed
 * stop the container with `make down`
 * run the application with `make run`
 * run the tests with `make tests`
+
+### Solution Notes
+
+* The csv parsing assumes no commas are present within the columns
+* Also the file reader assumes all columns are present and in the same order.
