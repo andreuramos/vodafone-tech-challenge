@@ -4,9 +4,11 @@ import os
 
 
 def _parse_billing(billing) -> float:
-    if billing.strip() == '':
-        billing = 0
-    return float(billing)
+    try:
+        billing = float(billing)
+    except ValueError:
+        billing = 0.0
+    return billing
 
 
 def _build_customer(line):

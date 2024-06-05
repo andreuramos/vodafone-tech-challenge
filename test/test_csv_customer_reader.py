@@ -11,8 +11,7 @@ class TestCsvCustomerReader(TestCase):
         with self.assertRaises(FileNotFoundError):
             reader.read()
 
-
-    def test_empty_file_throws_exception(self) -> None:
+    def test_empty_file_throws_exception(self):
         reader = CsvCustomerReader('test/empty.csv')
 
         with self.assertRaises(ValueError) as context:
@@ -25,7 +24,7 @@ class TestCsvCustomerReader(TestCase):
 
         customers = reader.read()
 
-        assert len(customers) == 5
+        assert len(customers) == 6
         assert customers[0].id == 1
         assert customers[0].name == "John Smith"
         assert customers[0].email == "john@mail.com"
@@ -33,5 +32,4 @@ class TestCsvCustomerReader(TestCase):
         assert customers[0].location == "New York"
         assert customers[2].billing == 0
         assert customers[3].billing == 12400.27
-
-
+        assert customers[5].billing == 0
