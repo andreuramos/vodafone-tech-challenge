@@ -8,6 +8,8 @@ class CustomerWriter:
     def __init__(self, outputpath=None):
         if outputpath is None:
             data_directory = os.getenv('DATA_DIRECTORY')
+            if not os.path.exists(data_directory):
+                os.makedirs(data_directory)
             output_filename = os.getenv('OUTPUT_FILE')
             self.outputpath = data_directory + '/' + output_filename
         else:
