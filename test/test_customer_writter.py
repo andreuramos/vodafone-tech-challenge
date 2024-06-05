@@ -11,11 +11,11 @@ class TestCustomerWriter(TestCase):
         self.writer = CustomerWriter()
 
     def test_creates_file_if_not_exists(self):
-        writer = CustomerWriter("data/test_output.csv")
+        writer = CustomerWriter("test/test_output.csv")
 
         writer.write([], 0)
 
-        assert os.path.isfile("data/test_output.csv")
+        assert os.path.isfile("test/test_output.csv")
 
     def test_file_contains_expected_output(self):
         customer = Customer(1,"John Goodman", "jgoodman@email.com", 0, "NY")
@@ -32,6 +32,6 @@ class TestCustomerWriter(TestCase):
 
     def tearDown(self) -> None:
         try:
-            os.remove("data/test_output.csv")
+            os.remove("test/test_output.csv")
         except OSError:
             pass
