@@ -23,7 +23,7 @@ class TestUseCase(unittest.TestCase):
         [code, message] = use_case.run()
 
         assert code == 0
-        assert message == "File not found"
+        assert message == "Source file not found"
 
     def test_no_customers(self):
         use_case = UseCase(self.reader, self.masker, self.writer)

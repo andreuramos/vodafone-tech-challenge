@@ -4,6 +4,14 @@ from src.csv_customer_reader import CsvCustomerReader
 
 
 class TestCsvCustomerReader(TestCase):
+
+    def test_no_source_file_throws_exception(self):
+        reader = CsvCustomerReader('test/nofile.csv')
+
+        with self.assertRaises(FileNotFoundError):
+            reader.read()
+
+
     def test_empty_file_throws_exception(self) -> None:
         reader = CsvCustomerReader('test/empty.csv')
 
