@@ -21,7 +21,7 @@ class UseCase:
                 report.add_customer(customer)
                 masked_customers.append(self.customer_masker.mask(customer))
         except FileNotFoundError:
-            return [0, "File not found"]
+            return [0, "Source file not found"]
         except Exception as e:
             return [0, f"Error: {e}"]
 

@@ -11,7 +11,7 @@ having docker installed
 * build the docker image with `make build`
 * start the container with `make up`
 * stop the container with `make down`
-* run the application with `make run`
+* run the application with `make run`. __NOTE:__ a source file named `customers.csv` is expected to be in a `data` directory
 * run the tests with `make tests`
 
 ### Solution Notes

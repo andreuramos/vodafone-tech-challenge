@@ -47,5 +47,6 @@ class TestUseCase(unittest.TestCase):
         self.writer.write.assert_called_with([masked_customer], 0)
         assert code == 1
 
+
 if __name__ == '__main__':
     unittest.main()
