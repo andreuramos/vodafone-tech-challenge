@@ -13,7 +13,7 @@ class TestCsvCustomerReader(TestCase):
         self.assertEqual(str(context.exception), "Source file is empty")
 
     def test_valid_file_returns_customer_list(self):
-        reader = CsvCustomerReader()
+        reader = CsvCustomerReader('test/example.csv')
 
         customers = reader.read()
 
